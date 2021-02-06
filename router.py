@@ -6,7 +6,12 @@ class Router:
         self.hostname = hostname
     def add_inf(self, inf):
         self.interfaces.append(inf)
+    def show_inf(self):
+        print("show interface of",self.hostname)
+        print("{} has {} interfaces".format(self.hostname, len(self.interfaces)))
+        print(*self.interfaces, sep="\n")
+
 r1 = Router('Cisco', 'IOSv', "R1")
-print(r1.hostname)
 r1.add_inf("GigabitEthernet 0/1")
-print(r1.interfaces)
+r1.add_inf("GigabitEthernet 0/2")
+r1.show_inf()
